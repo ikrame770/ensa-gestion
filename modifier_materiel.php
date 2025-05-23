@@ -2,7 +2,7 @@
 
 // Connexion à la base de données
 $host = 'localhost';
-$dbname = 'gestion_materiel'; // change avec le nom de ta base
+$dbname = 'gestion_materiel';
 $username = 'root';
 $password = 'xuce1234';
 
@@ -42,7 +42,6 @@ if (isset($_POST['update'])) {
     $fournisseur = trim($_POST['fournisseur'] ?? '');
     $prix_ht = trim($_POST['prix_ht'] ?? '');
     $date_achat = $_POST['date_achat'] ?? '';
-    $description = trim($_POST['description'] ?? '');
 
     // Validation simple
     if ($numero_ordre === '' || $categorie === '' || $designation === '' || $date_achat === '') {
@@ -55,8 +54,7 @@ if (isset($_POST['update'])) {
             'designation' => $designation,
             'fournisseur' => $fournisseur,
             'prix_ht' => $prix_ht,
-            'date_achat' => $date_achat,
-            'description' => $description
+            'date_achat' => $date_achat
         ];
     } else {
         try {
@@ -68,7 +66,6 @@ if (isset($_POST['update'])) {
                 'fournisseur' => $fournisseur,
                 'prix_ht' => $prix_ht,
                 'date_achat' => $date_achat,
-                'description' => $description,
                 'num' => $numero_ordre
             ]);
             $success = "Le matériel a été modifié avec succès.";
