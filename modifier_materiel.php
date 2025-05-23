@@ -58,7 +58,7 @@ if (isset($_POST['update'])) {
         ];
     } else {
         try {
-            $stmt = $pdo->prepare("UPDATE materiel SET departement = :departement, categorie = :categorie, designation = :designation, fournisseur = :fournisseur, prix_ht = :prix_ht, date_achat = :date_achat, description = :description WHERE numero_ordre = :num");
+            $stmt = $pdo->prepare("UPDATE materiel SET departement = :departement, categorie = :categorie, designation = :designation, fournisseur = :fournisseur, prix_ht = :prix_ht, date_achat = :date_achat WHERE numero_ordre = :num");
             $stmt->execute([
                 'departement' => $departement,
                 'categorie' => $categorie,
